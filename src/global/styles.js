@@ -6,9 +6,10 @@ export const colors = {
   grey4: '#bdc6cf',
   grey5: '#e1e8ee',
   cardComment: '#86939e',
-  cardCommentBackground: 'white',
+  cardBackground: 'white',
   statusBar: '#ff8c52',
   headerText: 'white',
+  lightgreen: '#66DF48',
 };
 
 export const parameters = {

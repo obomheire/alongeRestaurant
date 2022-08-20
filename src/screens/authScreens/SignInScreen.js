@@ -6,21 +6,21 @@ import * as Animatable from 'react-native-animatable';
 import Header from '../../components/Header';
 import {Icon, Button, SocialIcon} from '@rneui/base';
 
-const SignInScreen = () => {
+const SignInScreen = ({navigation}) => {
   const [textInput2Focused, setTextInput2Focused] = useState(false);
 
   const textInput1 = useRef(1);
   const textInput2 = useRef(2);
   return (
     <View style={styles.container}>
-      <Header title="My ACCOUNT" type="arrow-left" />
+      <Header title="My ACCOUNT" name="arrow-left" navigation={navigation} />
 
       <View style={{marginLeft: 20, marginTop: 10}}>
         <Text style={title}>Sign In</Text>
       </View>
       <View style={{alignItems: 'center', marginTop: 10}}>
-        <Text style={styles.text1}>Please enter your email and password</Text>
-        <Text style={styles.text1}>Registered with your acount</Text>
+        <Text style={styles.text1}>Please enter the email and password</Text>
+        <Text style={styles.text1}>registered with your acount</Text>
       </View>
 
       <View>
@@ -38,7 +38,7 @@ const SignInScreen = () => {
             <Icon
               name="lock"
               iconStyle={{color: colors.grey3}}
-              type="material"
+              // type="material"
             />
           </Animatable.View>
           <TextInput
@@ -54,7 +54,7 @@ const SignInScreen = () => {
             <Icon
               name="visibility-off"
               iconStyle={{color: colors.grey3}}
-              type="material"
+              // type="material"
               style={{marginRight: 10}}
             />
           </Animatable.View>
@@ -65,6 +65,7 @@ const SignInScreen = () => {
           title="SIGN IN"
           buttonStyle={parameters.styledButton}
           titleStyle={parameters.buttonTitle}
+          onPress={(() => navigation.navigate('HomeScreen'))}
         />
       </View>
       <View style={{alignItems: 'center', marginTop: 15}}>
@@ -80,7 +81,7 @@ const SignInScreen = () => {
           title="Sign In with Facebook"
           button
           type="facebook"
-          style={styles.socialIcon}
+          style={{...styles.socialIcon, width: '95%'}}
           onPress={() => {}}
         />
       </View>
@@ -89,14 +90,15 @@ const SignInScreen = () => {
           title="Sign In with Google"
           button
           type="google"
-          style={styles.socialIcon}
+          style={{...styles.socialIcon, width: '95%'}}
           onPress={() => {}}
         />
       </View>
       <View style={{marginTop: 25, marginLeft: 20}}>
         <Text style={styles.text1}>New on XpressFood ?</Text>
       </View>
-      <View>
+
+      <View style={{alignItems: 'flex-end', marginHorizontal: 20}}>
         <Button
           title="Create an account"
           buttonStyle={styles.createButton}

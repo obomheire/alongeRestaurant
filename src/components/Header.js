@@ -2,18 +2,21 @@ import {StyleSheet, Text, View, Dimensions} from 'react-native';
 import React from 'react';
 
 import {colors, parameters} from '../global/styles';
-import {Icon} from '@rneui/themed';
+// import { Icon } from '@rneui/themed';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-const Header = ({title, type}) => {
+const Header = ({title, name, navigation}) => {
   return (
     <View style={styles.header}>
       <View style={{marginLeft: 20}}>
         <Icon
-          name={type}
+          name={name}
           type="material-community"
           color={colors.headerText}
           size={28}
-          onPress={() => {}}
+          onPress={() => {
+            navigation.goBack();
+          }}
         />
       </View>
       <View>
