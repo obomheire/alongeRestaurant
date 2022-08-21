@@ -1,11 +1,11 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {withBadge} from '@rneui/themed';
 import {colors, parameters} from '../global/styles';
 
 const HomeHeader = () => {
-  const BadgeIcon = withBadge(0)(Icon);
+  const BadgeIcon = withBadge(0)(MaterialCommunityIcons);
   return (
     <View style={styles.header}>
       <View
@@ -14,7 +14,7 @@ const HomeHeader = () => {
           justifyContent: 'center',
           marginLeft: 15,
         }}>
-        <Icon
+        <MaterialCommunityIcons
           type="material-community"
           name="menu"
           color={colors.cardBackground}

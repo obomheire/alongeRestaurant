@@ -7,7 +7,7 @@ import {
   Dimensions,
   Image,
 } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {colors, parameters} from '../global/styles';
 
 const FoodCard = ({
@@ -38,8 +38,8 @@ const FoodCard = ({
 
           <View style={{flex: 1, flexDirection: 'row'}}>
             <View style={styles.distance}>
-              <Icon
-                 type="material-community"
+              <MaterialCommunityIcons
+                type="material-community"
                 name="map-marker"
                 color={colors.grey2}
                 size={18}

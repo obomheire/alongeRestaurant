@@ -10,12 +10,14 @@ import {
   Image,
   Dimensions,
 } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import {colors, parameters} from '../global/styles';
 import HomeHeader from '../components/HomeHeader';
 import {filterData, restaurantsData} from '../global/data';
 import FoodCard from '../components/FoodCard';
 import CountDown from 'react-native-countdown-component';
+import RestaurantMapScreen from './RestaurantMapScreen';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
@@ -54,7 +56,7 @@ const Content = () => {
   );
 };
 
-const HomeScreen = () => {
+const HomeScreen = ({navigation}) => {
   const [delivery, setDelivery] = useState(true);
   const [indexCheck, setIndexCheck] = useState('0');
   return (
@@ -80,7 +82,11 @@ const HomeScreen = () => {
               </View>
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={() => setDelivery(!delivery)}>
+            <TouchableOpacity
+              onPress={() => {
+                setDelivery(!delivery);
+                navigation.navigate(RestaurantMapScreen);
+              }}>
               <View
                 style={{
                   ...styles.deliveryButton,
@@ -99,7 +105,7 @@ const HomeScreen = () => {
                 alignItems: 'center',
                 paddingLeft: 10,
               }}>
-              <Icon
+              <MaterialCommunityIcons
                 type="material-community"
                 name="map-marker"
                 color={colors.grey1}
@@ -110,7 +116,7 @@ const HomeScreen = () => {
             </View>
 
             <View style={styles.clockView}>
-              <Icon
+              <MaterialCommunityIcons
                 type="material-community"
                 name="clock-time-four"
                 color={colors.grey1}
@@ -121,7 +127,7 @@ const HomeScreen = () => {
             </View>
           </View>
           <View>
-            <Icon
+            <MaterialCommunityIcons
               type="material-community"
               name="tune"
               color={colors.grey1}
@@ -209,6 +215,24 @@ const HomeScreen = () => {
           ))}
         </View>
       </ScrollView>
+
+      {delivery && (
+        <View style={styles.floatButton}>
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate('RestaurantMapScreen');
+            }}>
+            <MaterialIcons
+              name="place"
+              type="material"
+              size={32}
+              color={colors.buttons}
+            />
+
+            <Text style={{color: colors.grey2}}>Map</Text>
+          </TouchableOpacity>
+        </View>
+      )}
     </View>
   );
 };
@@ -293,5 +317,16 @@ const styles = StyleSheet.create({
   smallCardText: {
     fontWeight: 'bold',
     color: colors.grey2,
+  },
+  floatButton: {
+    position: 'absolute',
+    bottom: 10,
+    right: 15,
+    backgroundColor: 'white',
+    elevation: 10,
+    width: 60,
+    height: 60,
+    borderRadius: 30,
+    alignItems: 'center',
   },
 });
