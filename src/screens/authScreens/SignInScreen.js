@@ -65,7 +65,7 @@ const SignInScreen = ({navigation}) => {
           title="SIGN IN"
           buttonStyle={parameters.styledButton}
           titleStyle={parameters.buttonTitle}
-          onPress={() => navigation.navigate('RootClientTabs')}
+          onPress={() => navigation.navigate('DrawerNavigator')}
         />
       </View>
       <View style={{alignItems: 'center', marginTop: 15}}>

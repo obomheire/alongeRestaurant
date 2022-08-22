@@ -4,7 +4,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import {withBadge} from '@rneui/themed';
 import {colors, parameters} from '../global/styles';
 
-const HomeHeader = () => {
+const HomeHeader = ({navigation}) => {
   const BadgeIcon = withBadge(0)(MaterialCommunityIcons);
   return (
     <View style={styles.header}>
@@ -15,10 +15,10 @@ const HomeHeader = () => {
           marginLeft: 15,
         }}>
         <MaterialCommunityIcons
-          type="material-community"
           name="menu"
           color={colors.cardBackground}
           size={32}
+          onPress={() => navigation.toggleDrawer()}
         />
       </View>
       <View style={{alignItems: 'center', justifyContent: 'center'}}>

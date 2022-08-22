@@ -21,6 +21,7 @@ const RootClientTabs = () => {
         name="HomeScreen"
         component={HomeScreen}
         options={{
+          headerShown: false,
           tabBarLabel: 'Home',
           tabBarIcon: ({color, size}) => (
             <MaterialCommunityIcons name="home" color={color} size={size} />
@@ -33,9 +34,9 @@ const RootClientTabs = () => {
         component={SearchScreen}
         options={{
           tabBarLabel: 'Search',
-            tabBarIcon: ({color, size}) => (
-              <Ionicons name="search" type="material" color={color} size={size} />
-            ),
+          tabBarIcon: ({color, size}) => (
+            <Ionicons name="search" type="material" color={color} size={size} />
+          ),
         }}
       />
 
@@ -71,4 +72,3 @@ const RootClientTabs = () => {
 
 export default RootClientTabs;
 
-const styles = StyleSheet.create({});
