@@ -1,3 +1,26 @@
+export const drawerItems = [
+  {
+    id: 1,
+    label: 'Payment',
+    name: 'credit-card-outline',
+  },
+  {
+    id: 2,
+    label: 'Promotions',
+    name: 'tag-heart',
+  },
+  {
+    id: 3,
+    label: 'Settings',
+    name: 'cog-outline',
+  },
+  {
+    id: 4,
+    label: 'Help',
+    name: 'lifebuoy',
+  },
+];
+
 export const filterData = [
   {name: 'Fast food', image: require('../assets/fastfood.png'), id: '0'},
   {name: 'Burgers', image: require('../assets/burger.png'), id: '1'},
@@ -11,52 +34,62 @@ export const filterData = [
 export const filterData2 = [
   {
     name: 'Fast food',
-    image: 'https://bukasapics.s3.us-east-2.amazonaws.com/chicken.png',
+    image:
+      'https://www.daysoftheyear.com/cdn-cgi/image/dpr=1%2Cf=auto%2Cfit=cover%2Cheight=675%2Cmetadata=none%2Conerror=redirect%2Cq=85%2Cwidth=1200/wp-content/uploads/national-fast-food-day.jpg',
     id: '0',
   },
   {
     name: 'Burgers',
-    image: 'https://bukasapics.s3.us-east-2.amazonaws.com/macdo.png',
+    image:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBt3XGS18l3r-x-Tw-6xGFe4OfHVYt0gbdsQ&usqp=CAU',
     id: '1',
   },
   {
     name: 'Salads',
-    image: 'https://bukasapics.s3.us-east-2.amazonaws.com/nandos.png',
+    image:
+      'https://2rdnmg1qbg403gumla1v9i2h-wpengine.netdna-ssl.com/wp-content/uploads/sites/3/2014/04/healthySalads-184087214-770x533-1-650x428.jpg',
     id: '2',
   },
   {
     name: 'Hotdog',
-    image: 'https://bukasapics.s3.us-east-2.amazonaws.com/pizza.png',
+    image:
+      'https://food.fnr.sndimg.com/content/dam/images/food/fullset/2020/09/11/FNK_Chicago-Dogs_H1.jpg.rend.hgtvcom.441.294.suffix/1600093267898.jpeg',
     id: '3',
   },
   {
     name: 'Chinese',
-    image: 'https://bukasapics.s3.us-east-2.amazonaws.com/pizza6.png',
+    image:
+      'https://static.independent.co.uk/s3fs-public/thumbnails/image/2017/02/07/15/chinese.jpg?width=1200',
     id: '4',
   },
   {
     name: 'Mexican',
-    image: 'https://bukasapics.s3.us-east-2.amazonaws.com/plate1.png',
+    image:
+      'https://cdn.vox-cdn.com/thumbor/c1tnGRKL2aQDZ7aihpp9jCJJKzg=/1200x0/filters:no_upscale()/cdn.vox-cdn.com/uploads/chorus_asset/file/16182432/mannys_016.jpg',
     id: '5',
   },
   {
     name: 'Sea food',
-    image: 'https://bukasapics.s3.us-east-2.amazonaws.com/plate2.png',
+    image:
+      'https://www.honestfoodtalks.com/wp-content/uploads/2020/11/Seafood-platter.jpg',
     id: '6',
   },
   {
     name: 'Chinese Food',
-    image: 'https://bukasapics.s3.us-east-2.amazonaws.com/plate3.png',
+    image:
+      'https://flavorverse.com/wp-content/uploads/2022/04/Chinese-Foods.jpg',
     id: '7',
   },
   {
     name: 'Mexican pie',
-    image: 'https://bukasapics.s3.us-east-2.amazonaws.com/plate4.png',
+    image:
+      'https://tastykitchen.com/recipes/wp-content/uploads/sites/2/2014/07/Mexican-Tortilla-Pie-by-Anita-at-Hungry-Couple-on-July-12-2014-410x273.jpg',
     id: '8',
   },
   {
     name: 'Ocean dish',
-    image: 'https://bukasapics.s3.us-east-2.amazonaws.com/plate5.png',
+    image:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTq8F5DFl6ArP1NQxXv_slNXdyVRWrGh1VOrg&usqp=CAU',
     id: '9',
   },
 ];

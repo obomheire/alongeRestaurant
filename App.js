@@ -16,6 +16,7 @@ const App = () => {
   //     subscription.remove();
   //   };
   // }, []);
+
   return (
     <SafeAreaProvider>
       <View style={styles.container}>

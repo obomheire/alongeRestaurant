@@ -1,5 +1,4 @@
 import React, {useState, useContext, useEffect} from 'react';
-import auth from '@react-native-firebase/auth';
 
 import {
   View,
@@ -10,6 +9,7 @@ import {
   Switch,
   StyleSheet,
   TouchableOpacity,
+  FlatList,
 } from 'react-native';
 
 import {
@@ -21,6 +21,7 @@ import {
 import {Avatar, Icon, Button} from '@rneui/base';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {colors} from '../global/styles';
+import { drawerItems } from '../global/data';
 
 const DrawerContent = props => {
   return (
@@ -110,45 +111,37 @@ const DrawerContent = props => {
 
         <DrawerItemList {...props} />
 
-        <DrawerItem
-          label="Payment"
-          icon={({color, size}) => (
-            <MaterialCommunityIcons
-              name="credit-card-outline"
-              color={color}
-              size={size}
+        {/* <FlatList
+          data={drawerItems}
+          keyExtractor={item => item.name}
+          renderItem={({item}) => (
+            <DrawerItem
+              label={item.label}
+              icon={({color, size}) => (
+                <MaterialCommunityIcons
+                  name={item.name}
+                  color={color}
+                  size={size}
+                />
+              )}
             />
           )}
-        />
+        /> */}
 
-        <DrawerItem
-          label="Promotions"
-          icon={({color, size}) => (
-            <MaterialCommunityIcons
-              name="tag-heart"
-              color={color}
-              size={size}
+        {drawerItems.map(item => (
+          <View key={item.id}>
+            <DrawerItem
+              label={item.label}
+              icon={({color, size}) => (
+                <MaterialCommunityIcons
+                  name={item.name}
+                  color={color}
+                  size={size}
+                />
+              )}
             />
-          )}
-        />
-
-        <DrawerItem
-          label="Settings"
-          icon={({color, size}) => (
-            <MaterialCommunityIcons
-              name="cog-outline"
-              color={color}
-              size={size}
-            />
-          )}
-        />
-
-        <DrawerItem
-          label="Help"
-          icon={({color, size}) => (
-            <MaterialCommunityIcons name="lifebuoy" color={color} size={size} />
-          )}
-        />
+          </View>
+        ))}
 
         <View style={{borderTopWidth: 1, borderTopColor: colors.grey5}}>
           <Text style={styles.preferences}>Preferences</Text>

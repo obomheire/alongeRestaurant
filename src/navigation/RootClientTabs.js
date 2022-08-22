@@ -33,9 +33,10 @@ const RootClientTabs = () => {
         name="SearchScreen"
         component={SearchScreen}
         options={{
+          headerShown: false,
           tabBarLabel: 'Search',
           tabBarIcon: ({color, size}) => (
-            <Ionicons name="search" type="material" color={color} size={size} />
+            <Ionicons name="search" color={color} size={size} />
           ),
         }}
       />

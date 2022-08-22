@@ -4,7 +4,9 @@ import {createDrawerNavigator} from '@react-navigation/drawer';
 import RootClientTabs from './RootClientTabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import {colors, parameters} from '../global/styles';
+import { colors, parameters } from '../global/styles';
+import BusinessConsoleScreen from '../screens/BusinessConsoleScreen'
+import DrawerContent from '../components/DrawerContent';
 
 const Drawer = createDrawerNavigator();
 
