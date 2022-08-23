@@ -10,7 +10,6 @@ const Header = ({title, name, navigation}) => {
       <View style={{marginLeft: 20}}>
         <MaterialCommunityIcons
           name={name}
-          type="material-community"
           color={colors.headerText}
           size={28}
           onPress={() => {
