@@ -189,7 +189,7 @@ const HomeScreen = ({navigation}) => {
             until={3600}
             size={14}
             digitStyle={{backgroundColor: colors.lightgreen}}
-            digitTxtStyle={{color: colors.cardbackground}}
+            digitTxtStyle={{color: colors.cardBackground}}
             timeToShow={['M', 'S']}
             timeLabels={{m: 'Min', s: 'Sec'}}
           />

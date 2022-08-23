@@ -115,7 +115,7 @@ const SearchComponent = () => {
               <TouchableOpacity
                 onPress={() => {
                   Keyboard.dismiss;
-                  navigation.navigate('RestaurantSearchScreen', {
+                  navigation.navigate('SearchResultScreen', {
                     item: item.name,
                   });
                   setModalVisible(false);

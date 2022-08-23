@@ -111,17 +111,20 @@ export const restaurantsData = [
       {
         name: 'Hand cut chips',
         price: 29.3,
-        image: 'https://bukasapics.s3.us-east-2.amazonaws.com/plate5.png',
+        image:
+          'https://grantourismotravels.com/wp-content/uploads/2020/09/Hand-Cut-Potato-Chips-Recipe-for-Crispy-Fries-Copyright-2020-Terence-Carter-Grantourismo-f.jpg',
       },
       {
         name: 'Big Mac',
         price: 50.8,
-        image: 'https://bukasapics.s3.us-east-2.amazonaws.com/plate4.png',
+        image:
+          'https://cdn.cnn.com/cnnnext/dam/assets/200310103455-mcdonalds-little-mac-and-double-big-mac-full-169.jpg',
       },
       {
         name: 'Chicken Burger',
         price: 70,
-        image: 'https://bukasapics.s3.us-east-2.amazonaws.com/plate3.png',
+        image:
+          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSc9U6zs4x7h4mAAAJjWgJ-3efMkdDa8djFCA&usqp=CAU',
       },
     ],
     id: 0,
@@ -144,17 +147,20 @@ export const restaurantsData = [
       {
         name: 'Hand cut chips',
         price: 29.3,
-        image: 'https://bukasapics.s3.us-east-2.amazonaws.com/plate5.png',
+        image:
+          'https://grantourismotravels.com/wp-content/uploads/2020/09/Hand-Cut-Potato-Chips-Recipe-for-Crispy-Fries-Copyright-2020-Terence-Carter-Grantourismo-f.jpg',
       },
       {
         name: 'Big Mac',
         price: 50.8,
-        image: 'https://bukasapics.s3.us-east-2.amazonaws.com/plate4.png',
+        image:
+          'https://cdn.cnn.com/cnnnext/dam/assets/200310103455-mcdonalds-little-mac-and-double-big-mac-full-169.jpg',
       },
       {
         name: 'Chicken Burger',
         price: 70,
-        image: 'https://bukasapics.s3.us-east-2.amazonaws.com/plate3.png',
+        image:
+          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSc9U6zs4x7h4mAAAJjWgJ-3efMkdDa8djFCA&usqp=CAU',
       },
     ],
     id: 1,
@@ -177,17 +183,20 @@ export const restaurantsData = [
       {
         name: 'Hand cut chips',
         price: 29.3,
-        image: 'https://bukasapics.s3.us-east-2.amazonaws.com/plate5.png',
+        image:
+          'https://grantourismotravels.com/wp-content/uploads/2020/09/Hand-Cut-Potato-Chips-Recipe-for-Crispy-Fries-Copyright-2020-Terence-Carter-Grantourismo-f.jpg',
       },
       {
         name: 'Big Mac',
         price: 50.8,
-        image: 'https://bukasapics.s3.us-east-2.amazonaws.com/plate4.png',
+        image:
+          'https://cdn.cnn.com/cnnnext/dam/assets/200310103455-mcdonalds-little-mac-and-double-big-mac-full-169.jpg',
       },
       {
         name: 'Chicken Burger',
         price: 70,
-        image: 'https://bukasapics.s3.us-east-2.amazonaws.com/plate3.png',
+        image:
+          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSc9U6zs4x7h4mAAAJjWgJ-3efMkdDa8djFCA&usqp=CAU',
       },
     ],
     id: 2,
@@ -210,17 +219,20 @@ export const restaurantsData = [
       {
         name: 'Hand cut chips',
         price: 29.3,
-        image: 'https://bukasapics.s3.us-east-2.amazonaws.com/plate5.png',
+        image:
+          'https://grantourismotravels.com/wp-content/uploads/2020/09/Hand-Cut-Potato-Chips-Recipe-for-Crispy-Fries-Copyright-2020-Terence-Carter-Grantourismo-f.jpg',
       },
       {
         name: 'Big Mac',
         price: 50.8,
-        image: 'https://bukasapics.s3.us-east-2.amazonaws.com/plate4.png',
+        image:
+          'https://cdn.cnn.com/cnnnext/dam/assets/200310103455-mcdonalds-little-mac-and-double-big-mac-full-169.jpg',
       },
       {
         name: 'Chicken Burger',
         price: 70,
-        image: 'https://bukasapics.s3.us-east-2.amazonaws.com/plate3.png',
+        image:
+          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSc9U6zs4x7h4mAAAJjWgJ-3efMkdDa8djFCA&usqp=CAU',
       },
     ],
     id: 3,

@@ -9,13 +9,16 @@ import {
   TouchableWithoutFeedback,
   ImageBackgroundComponent,
 } from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 import SearchComponent from '../components/SearchComponent';
 import {filterData2} from '../global/data';
 import {colors} from '../global/styles';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
-const SearchScreenItems = ({category, marginStyle, listFooterComp}) => {
+const SearchScreenItems = ({ category, marginStyle, listFooterComp }) => {
+  
+  const navigation = useNavigation();
   return (
     <View>
       <FlatList
@@ -60,7 +63,7 @@ const Footer = () => {
   );
 };
 
-const SearchScreen = ({navigation}) => {
+const SearchScreen = () => {
   return (
     <View style={{flex: 1, marginBottom: 10, paddingTop: 20}}>
       <SearchComponent />

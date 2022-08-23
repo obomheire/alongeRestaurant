@@ -8,6 +8,7 @@ import MyOrdersScreen from '../screens/MyOrdersScreen';
 import MyAccountScreen from '../screens/MyAccountScreen';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import ClientStack from './ClientStack';
 
 const ClientTabs = createBottomTabNavigator();
 
@@ -30,8 +31,8 @@ const RootClientTabs = () => {
       />
 
       <ClientTabs.Screen
-        name="SearchScreen"
-        component={SearchScreen}
+        name="ClientStack"
+        component={ClientStack}
         options={{
           headerShown: false,
           tabBarLabel: 'Search',
