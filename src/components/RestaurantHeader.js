@@ -6,13 +6,13 @@ import {colors} from '../global/styles';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-const RestaurantHeader = ({navigation,id}) => {
+const RestaurantHeader = ({navigation, id}) => {
   const index2 = 10;
   const currentValue = new Animated.Value(1);
 
   const [liked, setLiked] = useState(false);
-  const [counter, setCounter] = useState(-2);
   const [visible, setVisible] = useState(false);
+  const [counter, setCounter] = useState(-2);
 
   const likeHander = () => {
     if (!liked) setVisible(true);
