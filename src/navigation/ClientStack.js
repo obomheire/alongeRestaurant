@@ -4,8 +4,9 @@ import {createStackNavigator, TransitionPresets} from '@react-navigation/stack';
 import SearchScreen from '../screens/SearchScreen';
 import SearchResultScreen from '../screens/SearchResultScreen';
 import RestaurantHomeScreen from '../screens/RestaurantHomeScreen';
-import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
+import {getFocusedRouteNameFromRoute} from '@react-navigation/native';
 import MenuProductScreen from '../screens/MenuProductScreen';
+// import RootClientTabs from './RootClientTabs';
 
 const ClientSearch = createStackNavigator();
 
@@ -17,7 +18,7 @@ const ClientStack = ({navigation, route}) => {
     } else {
       navigation.setOptions({tabBarVisible: true});
     }
-    }, [navigation, route]);
+  }, [navigation, route]);
 
   return (
     <ClientSearch.Navigator>

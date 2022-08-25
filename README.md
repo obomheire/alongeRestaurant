@@ -7,6 +7,7 @@ Refactor:
 - Reuse <FoofCard /> component in <SearchResultCard /> rather than repeating the contents again
 - Use the proper recommended syntax to remove the tab navigation bar from the RestaurantHomeScreem from the ClientStack.js 
 - Upadate MenuTabs.js with local component route that will be called from route1 - route8
+-Remobe Tab Navigation from RestaurantHomeScreen.js and MenuProductScreen.js
 
 SearchScreen no component:
 

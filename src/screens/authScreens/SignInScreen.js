@@ -1,16 +1,35 @@
-import {StyleSheet, Text, TextInput, View} from 'react-native';
+import {StyleSheet, Text, TextInput, View, Alert} from 'react-native';
 import React, {useRef, useState} from 'react';
-
 import {colors, parameters, title} from '../../global/styles';
 import * as Animatable from 'react-native-animatable';
 import Header from '../../components/Header';
-import {Icon, Button, SocialIcon} from '@rneui/base';
+import { Icon, Button, SocialIcon } from '@rneui/base';
+import { Formik } from 'formik';
+import auth from '@react-native-firebase/auth';
 
 const SignInScreen = ({navigation}) => {
   const [textInput2Focused, setTextInput2Focused] = useState(false);
 
   const textInput1 = useRef(1);
   const textInput2 = useRef(2);
+
+
+const signIn = async data => {
+  try {
+    const {password, email} = data;
+    const user = await auth().signInWithEmailAndPassword(email, password);
+    if (user) {
+      // dispatchSignedIn({
+      //   type: 'UPDATE_SIGN_IN',
+      //   payload: {userToken: 'signed-in'},
+      // });
+      console.log("USER SIGNED-IN")
+    }
+  } catch (error) {
+    Alert.alert(error.name, error.message);
+  }
+}
+
   return (
     <View style={styles.container}>
       <Header title="My ACCOUNT" name="arrow-left" navigation={navigation} />
@@ -23,51 +42,75 @@ const SignInScreen = ({navigation}) => {
         <Text style={styles.text1}>registered with your acount</Text>
       </View>
 
-      <View>
-        <View style={{marginTop: 20}}>
-          <TextInput
-            style={styles.textInput1}
-            placeholder="Email"
-            ref={textInput1}
-          />
-        </View>
-        <View style={styles.textInput2}>
-          <Animatable.View
-            animation={textInput2Focused ? '' : 'fadeInLeft'}
-            duration={400}>
-            <Icon
-              name="lock"
-              iconStyle={{color: colors.grey3}}
-              // type="material"
-            />
-          </Animatable.View>
-          <TextInput
-            style={{width: '80%'}}
-            placeholder="Password"
-            ref={textInput2}
-            onFocus={() => setTextInput2Focused(false)}
-            onBlur={() => setTextInput2Focused(true)}
-          />
-          <Animatable.View
-            animation={textInput2Focused ? '' : 'fadeInLeft'}
-            duration={400}>
-            <Icon
-              name="visibility-off"
-              iconStyle={{color: colors.grey3}}
-              // type="material"
-              style={{marginRight: 10}}
-            />
-          </Animatable.View>
-        </View>
-      </View>
-      <View style={{marginHorizontal: 20, marginTop: 30}}>
-        <Button
-          title="SIGN IN"
-          buttonStyle={parameters.styledButton}
-          titleStyle={parameters.buttonTitle}
-          onPress={() => navigation.navigate('DrawerNavigator')}
-        />
-      </View>
+      <Formik
+        initialValues={{email: '', password: ''}}
+        onSubmit={values => {
+          signIn(values);
+        }}>
+        {props => (
+          <View>
+            <View style={{marginTop: 20}}>
+              <View>
+                <TextInput
+                  style={styles.textInput1}
+                  placeholder="Email"
+                  ref={textInput1}
+                  onChangeText={props.handleChange('email')}
+                  value={props.values.email}
+                />
+              </View>
+
+              <View style={styles.textInput2}>
+                <Animatable.View
+                  animation={textInput2Focused ? '' : 'fadeInLeft'}
+                  duration={400}>
+                  <Icon
+                    name="lock"
+                    iconStyle={{color: colors.grey3}}
+                    type="material"
+                    style={{}}
+                  />
+                </Animatable.View>
+
+                <TextInput
+                  style={{flex: 1}}
+                  placeholder="Password"
+                  ref={textInput2}
+                  onFocus={() => {
+                    setTextInput2Focused(false);
+                  }}
+                  onBlur={() => {
+                    setTextInput2Focused(true);
+                  }}
+                  onChangeText={props.handleChange('password')}
+                  value={props.values.password}
+                />
+
+                <Animatable.View
+                  animation={textInput2Focused ? '' : 'fadeInLeft'}
+                  duration={400}>
+                  <Icon
+                    name="visibility-off"
+                    iconStyle={{color: colors.grey3}}
+                    type="material"
+                    style={{marginRight: 10}}
+                  />
+                </Animatable.View>
+              </View>
+            </View>
+
+            <View style={{marginHorizontal: 20, marginTop: 30}}>
+              <Button
+                title="SIGN IN"
+                buttonStyle={parameters.styledButton}
+                titleStyle={parameters.buttonTitle}
+                onPress={props.handleSubmit}
+              />
+            </View>
+          </View>
+        )}
+      </Formik>
+
       <View style={{alignItems: 'center', marginTop: 15}}>
         <Text style={{...styles.text1, textDecorationLine: 'underline'}}>
           Forgot Password
