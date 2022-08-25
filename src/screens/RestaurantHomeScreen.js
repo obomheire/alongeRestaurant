@@ -6,7 +6,6 @@ import {
   ScrollView,
   Dimensions,
   TouchableOpacity,
-  Modal,
 } from 'react-native';
 import RestaurantHeader from '../components/RestaurantHeader';
 import {restaurantsData} from '../global/data';
@@ -14,7 +13,7 @@ import {colors, fonts} from '../global/styles';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {TabView, TabBar} from 'react-native-tab-view';
-// import MenuScreen from './RestaurantTabs/MenuScreen';
+import MenuScreen from './RestaurantTabs/MenuScreen';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const initialLayout = SCREEN_WIDTH;
@@ -48,9 +47,9 @@ const RestaurantHomeScreen = ({ navigation, route }) => {
         return <View></View>;
       };
 
-      // const menuPressed = () => {
-      //   navigation.navigate('MenuProductScreen');
-      // };
+      const menuPressed = () => {
+        navigation.navigate('MenuProductScreen');
+      };
 
 
   return (
@@ -72,11 +71,7 @@ const RestaurantHomeScreen = ({ navigation, route }) => {
               </Text>
               <Text style={styles.text3}>{restaurantsData[id].foodType}</Text>
               <View style={styles.view4}>
-                <Ionicons
-                  name="star"
-                  color={colors.grey3}
-                  size={15}
-                />
+                <Ionicons name="star" color={colors.grey3} size={15} />
                 <Text style={styles.text4}>
                   {restaurantsData[id].averageReview}
                 </Text>
@@ -125,8 +120,19 @@ const RestaurantHomeScreen = ({ navigation, route }) => {
           />
         </View>
 
-        {/* {index === 0 && <MenuScreen onPress={menuPressed} />} */}
+        {index === 0 && <MenuScreen onPress={menuPressed} />}
       </ScrollView>
+
+      <TouchableOpacity>
+        <View style={styles.view11}>
+          <View style={styles.view12}>
+            <Text style={styles.text13}>View Cart</Text>
+            <View style={styles.view13}>
+              <Text style={styles.text13}>0</Text>
+            </View>
+          </View>
+        </View>
+      </TouchableOpacity>
     </View>
   );
 };
