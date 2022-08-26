@@ -104,7 +104,7 @@ const SignUpScreen = ({navigation}) => {
                   <TextInput
                     placeholder="Email"
                     style={styles.input4}
-                    // autoFocus={false}
+                    autoFocus={false}
                     onChangeText={props.handleChange('email')}
                     value={props.values.email}
                   />
@@ -120,7 +120,7 @@ const SignUpScreen = ({navigation}) => {
                 <TextInput
                   placeholder="Password"
                   style={{flex: 1}}
-                  autoFocus={false}
+                  autoFocus={false}  
                   onChangeText={props.handleChange('password')}
                   value={props.values.password}
                   onFocus={() => {
