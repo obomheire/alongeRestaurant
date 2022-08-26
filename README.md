@@ -7,7 +7,10 @@ Refactor:
 - Reuse <FoofCard /> component in <SearchResultCard /> rather than repeating the contents again
 - Use the proper recommended syntax to remove the tab navigation bar from the RestaurantHomeScreem from the ClientStack.js 
 - Upadate MenuTabs.js with local component route that will be called from route1 - route8
--Remobe Tab Navigation from RestaurantHomeScreen.js and MenuProductScreen.js
+-Remove Tab Navigation from RestaurantHomeScreen.js and MenuProductScreen.js
+- In the SignInScreen.js & SignUpScreen.js make a reusable component for the password field
+- In the SignUpScreen.js use only one <Text> tag for the text and use syle to format to V shape
+- In the SignUpScreen.js make a reusable component for the already have account and the Sign-in Button it was similarly done in the SignInScreen.js
 
 SearchScreen no component:
 
