@@ -1,4 +1,5 @@
-import React, {useState, useContext, useEffect} from 'react';
+import React, { useState, useContext, useEffect } from 'react';
+import auth from '@react-native-firebase/auth';
 
 import {
   View,
@@ -22,8 +23,24 @@ import {Avatar, Icon, Button} from '@rneui/base';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {colors} from '../global/styles';
 import { drawerItems } from '../global/data';
+import {SignInContext} from '../contexts/authContext';
 
 const DrawerContent = props => {
+
+   const {dispatchAuthUser} = useContext(SignInContext);
+
+const signOut = async () => {
+     try {
+       await auth().signOut()
+         console.log('USER SUCCESSFULLY SIGNED OUT');
+         dispatchAuthUser({
+           type: 'UPDATE_SIGN_OUT',
+           payload: {userToken: null},
+         });
+     } catch (error) {
+       Alert.alert(error.code);
+     }
+   }
   return (
     <View style={styles.container}>
       <DrawerContentScrollView {...props}>
@@ -158,19 +175,21 @@ const DrawerContent = props => {
         </View>
       </DrawerContentScrollView>
 
-      <DrawerItem
-        label="Sign Out"
-        icon={({color, size}) => (
-          <MaterialCommunityIcons
-            name="logout-variant"
-            color={color}
-            size={size}
-            onPress={() => {
-              signOut();
-            }}
-          />
-        )}
-      />
+      {/* <TouchableOpacity onPress={() => signOut()}> */}
+        <DrawerItem
+          label="Sign Out"
+          icon={({color, size}) => (
+            <MaterialCommunityIcons
+              name="logout-variant"
+              color={color}
+              size={size}
+              onPress={() => {
+                signOut();
+              }}
+            />
+          )}
+        />
+      {/* </TouchableOpacity> */}
     </View>
   );
 };

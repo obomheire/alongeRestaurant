@@ -23,7 +23,7 @@ const App = () => {
       <View style={styles.container}>
         <StatusBar
           barStyle="light-content"
-          backgroundColor={colors.statusbar}
+          backgroundColor={colors.statusBar}
         />
 
         <RootNavigator />

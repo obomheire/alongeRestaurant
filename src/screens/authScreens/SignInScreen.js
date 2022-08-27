@@ -7,23 +7,23 @@ import {Icon, Button, SocialIcon} from '@rneui/base';
 import {Formik} from 'formik';
 import auth from '@react-native-firebase/auth';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import { SignInContext } from '../../contexts/authContext';
+import {SignInContext} from '../../contexts/authContext';
 
-const SignInScreen = ({ navigation }) => {
-  
-  const { dispatchSignedIn } = useContext(SignInContext);
-  
+const SignInScreen = ({navigation}) => {
+  const {dispatchAuthUser} = useContext(SignInContext);
+
   const [textInput2Focused, setTextInput2Focused] = useState(false);
 
   const textInput1 = useRef(1);
   const textInput2 = useRef(2);
 
-  const signIn = async (data) => {
+  const signIn = async data => {
     try {
       const {password, email} = data;
       const user = await auth().signInWithEmailAndPassword(email, password);
       if (user) {
-        dispatchSignedIn({
+        console.log('USER SUCCESSFULLY SIGNED IN');
+        dispatchAuthUser({
           type: 'UPDATE_SIGN_IN',
           payload: {userToken: 'signed-in'},
         });

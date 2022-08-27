@@ -5,11 +5,11 @@ import {AppStack} from './AppStack';
 import {SignInContext} from '../contexts/authContext';
 
 const RootNavigator = () => {
-  const {signedIn} = useContext(SignInContext);
+  const {authUser} = useContext(SignInContext);
 
   return (
     <NavigationContainer>
-      {signedIn.userToken === null ? <AuthStack /> : <AppStack />}
+      {authUser.userToken === null ? <AuthStack /> : <AppStack />}
     </NavigationContainer>
   );
 };

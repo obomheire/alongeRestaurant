@@ -6,7 +6,7 @@ import SignUpScreen from '../screens/authScreens/SignUpScreen';
 
 const Auth = createStackNavigator();
 
-export const AuthStack = () => {
+export  const AuthStack = () => {
   return (
     <Auth.Navigator>
       <Auth.Screen
