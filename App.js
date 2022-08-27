@@ -4,6 +4,7 @@ import {StatusBar, StyleSheet, Text, View, LogBox, AppState} from 'react-native'
 import React, {useEffect} from 'react';
 import {colors, parameters} from './src/global/styles';
 import RootNavigator from './src/navigation/RootNavigator';
+import { SignInContextProvider } from './src/contexts/authContext';
 
 // To ignore this error warning: WARN  EventEmitter.removeListener(...), add the following lines:
 // import {LogBox} from 'react-native';
@@ -18,15 +19,16 @@ const App = () => {
   // }, []);
 
   return (
-    <SafeAreaProvider>
+    <SignInContextProvider>
       <View style={styles.container}>
         <StatusBar
           barStyle="light-content"
-          backgroundColor={colors.statusBar}
+          backgroundColor={colors.statusbar}
         />
+
         <RootNavigator />
       </View>
-    </SafeAreaProvider>
+    </SignInContextProvider>
   );
 };
 

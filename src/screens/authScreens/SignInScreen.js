@@ -1,28 +1,32 @@
 import {StyleSheet, Text, TextInput, View, Alert} from 'react-native';
-import React, {useRef, useState} from 'react';
+import React, {useRef, useState, useContext} from 'react';
 import {colors, parameters, title} from '../../global/styles';
 import * as Animatable from 'react-native-animatable';
 import Header from '../../components/Header';
 import {Icon, Button, SocialIcon} from '@rneui/base';
 import {Formik} from 'formik';
 import auth from '@react-native-firebase/auth';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import { SignInContext } from '../../contexts/authContext';
 
-const SignInScreen = ({navigation}) => {
+const SignInScreen = ({ navigation }) => {
+  
+  const { dispatchSignedIn } = useContext(SignInContext);
+  
   const [textInput2Focused, setTextInput2Focused] = useState(false);
 
   const textInput1 = useRef(1);
   const textInput2 = useRef(2);
 
-  const signIn = async data => {
+  const signIn = async (data) => {
     try {
       const {password, email} = data;
       const user = await auth().signInWithEmailAndPassword(email, password);
       if (user) {
-        // dispatchSignedIn({
-        //   type: 'UPDATE_SIGN_IN',
-        //   payload: {userToken: 'signed-in'},
-        // });
-        console.log('USER SIGNED-IN');
+        dispatchSignedIn({
+          type: 'UPDATE_SIGN_IN',
+          payload: {userToken: 'signed-in'},
+        });
       }
     } catch (error) {
       Alert.alert(error.name, error.message);
@@ -49,14 +53,22 @@ const SignInScreen = ({navigation}) => {
         {props => (
           <View>
             <View style={{marginTop: 20}}>
-              <View>
-                <TextInput
-                  style={styles.textInput1}
-                  placeholder="Email"
-                  ref={textInput1}
-                  onChangeText={props.handleChange('email')}
-                  value={props.values.email}
-                />
+              <View style={styles.view10}>
+                <View>
+                  <MaterialCommunityIcons
+                    name="email"
+                    style={styles.email}
+                    color={colors.grey3}
+                  />
+                </View>
+                <View style={styles.view11}>
+                  <TextInput
+                    placeholder="Email"
+                    autoFocus={false}
+                    onChangeText={props.handleChange('email')}
+                    value={props.values.email}
+                  />
+                </View>
               </View>
 
               <View style={styles.textInput2}>
@@ -73,6 +85,7 @@ const SignInScreen = ({navigation}) => {
 
                 <TextInput
                   style={{flex: 1}}
+                  secureTextEntry={true}
                   placeholder="Password"
                   ref={textInput2}
                   onFocus={() => {
@@ -115,10 +128,10 @@ const SignInScreen = ({navigation}) => {
           Forgot Password
         </Text>
       </View>
-      <View style={{alignItems: 'center', marginTop: 30, marginBottom: 30}}>
+      <View style={{alignItems: 'center', marginTop: 15, marginBottom: 15}}>
         <Text style={{fontSize: 20, fontWeight: 'bold'}}>OR</Text>
       </View>
-      <View style={{marginHorizontal: 10, marginTop: 10}}>
+      <View style={{marginHorizontal: 10}}>
         <SocialIcon
           title="Sign In with Facebook"
           button
@@ -203,4 +216,21 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginTop: -3,
   },
+  view10: {
+    marginHorizontal: 20,
+    marginBottom: 20,
+    marginTop: 10,
+    flexDirection: 'row',
+    borderWidth: 1,
+    borderColor: colors.grey4,
+    borderRadius: 12,
+    paddingLeft: 5,
+    height: 48,
+  },
+  email: {
+    fontSize: 24,
+    marginTop: 11,
+    marginLeft: 2,
+  },
+  view11: {marginLeft: 5, flex: 1},
 });

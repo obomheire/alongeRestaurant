@@ -66,7 +66,7 @@ const SignUpScreen = ({navigation}) => {
               <View style={styles.view6}>
                 <TextInput
                   placeholder="Mobile Number"
-                  style={styles.input1}
+                  style={{flex: 1}}
                   keyboardType="number-pad"
                   autoFocus={true}
                   onChangeText={props.handleChange('phone_number')}
@@ -76,7 +76,7 @@ const SignUpScreen = ({navigation}) => {
               <View style={styles.view6}>
                 <TextInput
                   placeholder="Name"
-                  style={styles.input1}
+                  style={{flex: 1}}
                   autoFocus={false}
                   onChangeText={props.handleChange('name')}
                   value={props.values.name}
@@ -86,7 +86,7 @@ const SignUpScreen = ({navigation}) => {
               <View style={styles.view6}>
                 <TextInput
                   placeholder="Family name"
-                  style={styles.input1}
+                  style={{flex: 1}}
                   autoFocus={false}
                   onChangeText={props.handleChange('family_name')}
                   value={props.values.family_name}
@@ -103,7 +103,7 @@ const SignUpScreen = ({navigation}) => {
                 <View style={styles.view11}>
                   <TextInput
                     placeholder="Email"
-                    style={styles.input4}
+                    // style={{flex: 1}}
                     autoFocus={false}
                     onChangeText={props.handleChange('email')}
                     value={props.values.email}
@@ -118,9 +118,10 @@ const SignUpScreen = ({navigation}) => {
                   <Icon name="lock" color={colors.grey3} type="material" />
                 </Animatable.View>
                 <TextInput
+                  secureTextEntry={true}
                   placeholder="Password"
                   style={{flex: 1}}
-                  autoFocus={false}  
+                  autoFocus={false}
                   onChangeText={props.handleChange('password')}
                   value={props.values.password}
                   onFocus={() => {
@@ -224,7 +225,7 @@ const styles = StyleSheet.create({
 
   view5: {marginLeft: 30, marginTop: 20},
 
-  input1: {fontSize: 16},
+  // input1: {fontSize: 16},
 
   view6: {
     flexDirection: 'row',
@@ -272,7 +273,7 @@ const styles = StyleSheet.create({
     marginLeft: 2,
   },
 
-  view11: {marginLeft: 30, maxWidth: '65%'},
+  view11: {marginLeft: 30, flex: 1},
 
   input4: {fontSize: 16, marginLeft: -20, marginBottom: -10},
 
