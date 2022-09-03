@@ -3,7 +3,7 @@ import {View, StyleSheet, FlatList, TouchableOpacity, Text} from 'react-native';
 import {menuData, menuDetailedData} from '../global/data';
 import MenuCard from '../components/MenuCard';
 
-export const Route1 = () => {
+export const Route1 = ({navigation}) => {
   return (
     <View style={{flex: 1}}>
       <View style={styles.view2}>
@@ -13,9 +13,9 @@ export const Route1 = () => {
           keyExtractor={(item, index) => index.toString()}
           renderItem={({item, index}) => (
             <TouchableOpacity
-            //   onPress={() => {
-            //     navigation.navigate('PreferenceScreen', {index});
-            //       }}
+              onPress={() => {
+                navigation.navigate('PreferenceScreen', {index});
+                  }}
               >
               <MenuCard
                 productName={item.meal}

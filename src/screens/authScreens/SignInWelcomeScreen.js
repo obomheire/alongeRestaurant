@@ -1,11 +1,27 @@
 import {StyleSheet, Text, View, Image} from 'react-native';
-import React from 'react';
-
+import React, {useEffect, useContext} from 'react';
 import {colors, parameters, title} from '../../global/styles';
 import Swiper from 'react-native-swiper';
 import {Button} from '@rneui/base';
+import {SignInContext} from '../../contexts/authContext';
+import auth from '@react-native-firebase/auth';
 
-const SignInWelcomeScreen = ({ navigation }) => {
+const SignInWelcomeScreen = ({navigation}) => {
+  const {dispatchAuthUser} = useContext(SignInContext);
+
+  useEffect(() => {
+    auth().onAuthStateChanged(user => {
+      if (user) {
+        dispatchAuthUser({
+          type: 'UPDATE_SIGN_IN',
+          payload: {userToken: 'signed-in'},
+        });
+      } else {
+        dispatchAuthUser({type: 'UPDATE_SIGN_OUT', payload: {userToken: null}});
+      }
+    });
+  }, []);
+
   return (
     <View style={{flex: 1}}>
       <View
