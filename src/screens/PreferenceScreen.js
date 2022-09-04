@@ -6,6 +6,7 @@ import {
   ScrollView,
   Image,
   Platform,
+  TouchableOpacity,
 } from 'react-native';
 import {colors} from '../global/styles';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -17,12 +18,13 @@ export default class PreferenceScreen extends Component {
   constructor(props) {
     super(props);
 
+    const data = menuDetailedData[this.props.route.params.index];
+
     this.state = {
-      preference:
-        menuDetailedData[this.props.route.params.index].preferenceData,
-      required: menuDetailedData[this.props.route.params.index].required,
-      minimum_quantity:
-        menuDetailedData[this.props.route.params.index].minimum_quatity,
+      preference: data.preferenceData,
+      required: data.required,
+      minimum_quantity: data.minimum_quantity,
+      counter: data.counter,
     };
   }
 
@@ -37,7 +39,7 @@ export default class PreferenceScreen extends Component {
             <Image
               style={styles.backgroundImage}
               source={{
-                uri: 'https://bukasapics.s3.us-east-2.amazonaws.com/macdo.png',
+                uri: 'https://nowtoronto.com/wp-content/uploads/2022/01/afrobeatkitchen.jpg',
               }}
             />
           </View>
@@ -105,25 +107,59 @@ export default class PreferenceScreen extends Component {
                 </View>
                 <View style={styles.view10}>
                   {item.map(items => (
-                    <View style={styles.view4} key={items.id}>
-                      <View style={styles.view19}>
-                        <View style={styles.view6}>
-                          <CheckBox
-                            center
-                            checkedIcon="check-square-o"
-                            uncheckedIcon="square-o"
-                            checked={false}
-                            checkedColor={colors.buttons}
-                          />
-                          <Text style={{color: colors.grey2, marginLeft: -10}}>
-                            {items.name}
+                    <TouchableOpacity
+                      key={items.id}
+                      onPress={() => {
+                        const id = this.state.preference.indexOf(item);
+                        if (this.state.minimum_quantity[id] !== null) {
+                          const check = item.filter(items =>
+                            items.checked ? items : null,
+                          );
+                          this.state.preference[id].forEach(value => {
+                            if (value.id === items.id) {
+                              if (
+                                check.length < this.state.minimum_quantity[id]
+                              )
+                                value.checked = !value.checked;
+                              else value.checked = false;
+                            }
+                          });
+                          this.state.counter[id] = this.state.counter[id]++;
+                          this.setState({
+                            preference: [...this.state.preference],
+                            counter: [...this.state.counter],
+                          });
+                        } else {
+                          this.state.preference[id].forEach(value => {
+                            if (value.id === items.id)
+                              value.checked = !value.checked;
+                          });
+                          this.setState({
+                            preference: [...this.state.preference],
+                          });
+                        }
+                      }}>
+                      <View style={styles.view4}>
+                        <View style={styles.view19}>
+                          <View style={styles.view6}>
+                            <CheckBox
+                              center
+                              checkedIcon="check-square-o"
+                              uncheckedIcon="square-o"
+                              checked={items.checked}
+                              checkedColor={colors.buttons}
+                            />
+                            <Text
+                              style={{color: colors.grey2, marginLeft: -10}}>
+                              {items.name}
+                            </Text>
+                          </View>
+                          <Text style={styles.text6}>
+                            N{items.price.toFixed(2)}
                           </Text>
                         </View>
-                        <Text style={styles.text6}>
-                          N{items.price.toFixed(2)}
-                        </Text>
                       </View>
-                    </View>
+                    </TouchableOpacity>
                   ))}
                 </View>
               </View>
