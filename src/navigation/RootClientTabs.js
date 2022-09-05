@@ -8,11 +8,12 @@ import MyOrdersScreen from '../screens/MyOrdersScreen';
 import MyAccountScreen from '../screens/MyAccountScreen';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import ClientStack from './ClientStack';
+import {getFocusedRouteNameFromRoute} from '@react-navigation/native';
+import RootClientStack from './RootClientStack';
 
 const ClientTabs = createBottomTabNavigator();
 
-const RootClientTabs = () => {
+const RootClientTabs = ({navigation, route}) => {
   return (
     <ClientTabs.Navigator
       screenOptions={{
@@ -31,14 +32,22 @@ const RootClientTabs = () => {
       />
 
       <ClientTabs.Screen
-        name="ClientStack"
-        component={ClientStack}
+        name="RootClientStack"
+        component={RootClientStack}
         options={{
           headerShown: false,
           tabBarLabel: 'Search',
           tabBarIcon: ({color, size}) => (
             <Ionicons name="search" color={color} size={size} />
           ),
+          tabBarStyle: (route => {
+            const routeName = getFocusedRouteNameFromRoute(route) ?? '';
+            console.log(routeName);
+            if (routeName === 'RestaurantHomeScreen' || 'MenuProductScreen') {
+              return {display: 'none'};
+            }
+            return;
+          })(route),
         }}
       />
 

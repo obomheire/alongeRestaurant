@@ -11,15 +11,16 @@ import PreferenceScreen from '../screens/PreferenceScreen';
 
 const ClientSearch = createStackNavigator();
 
-const ClientStack = ({navigation, route}) => {
-  useLayoutEffect(() => {
-    const routeName = getFocusedRouteNameFromRoute(route);
-    if (routeName === 'RestaurantHomeScreen' || 'MenuProductScreen') {
-      navigation.setOptions({tabBarVisible: false});
-    } else {
-      navigation.setOptions({tabBarVisible: true});
-    }
-  }, [navigation, route]);
+const RootClientStack = ({navigation, route}) => {
+  // useLayoutEffect(() => {
+  //   const routeName = getFocusedRouteNameFromRoute(route);
+  //   console.log(routeName);
+  //   if (routeName === 'RestaurantHomeScreen' || 'MenuProductScreen') {
+  //     navigation.setOptions({tabBarStyle: {display: 'none'}});
+  //   } else {
+  //     navigation.setOptions({tabBarStyle: {display: 'flex'}});
+  //   }
+  // }, [navigation, route]);
 
   return (
     <ClientSearch.Navigator>
@@ -63,4 +64,4 @@ const ClientStack = ({navigation, route}) => {
   );
 };
 
-export default ClientStack;
+export default RootClientStack;
