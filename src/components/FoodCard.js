@@ -4,18 +4,13 @@ import {
   Text,
   View,
   TouchableOpacity,
-  Dimensions,
   Image,
 } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import {colors, parameters} from '../global/styles';
+import {colors} from '../global/styles';
 
 const FoodCard = ({
-  OnPressFoodCard,
   restaurantName,
-  deliveryAvailable,
-  discountAvailable,
-  discountPercent,
   numberOfReview,
   businessAddress,
   farAway,

@@ -13,12 +13,8 @@ import FoodCard from './FoodCard';
 import ProductCard from '../components/ProductCard'
 
 const SearchResultCard = ({
-  screenWidth,
   OnPressRestaurantCard,
   restaurantName,
-  deliveryAvailabe,
-  discountAvailable,
-  discountPercent,
   numberOfReview,
   businessAddress,
   farAway,
