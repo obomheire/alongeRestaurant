@@ -120,7 +120,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     borderRadius: 12,
     borderWidth: 1,
-    borderColor: '#ff8c52',
+    borderColor: '#75ba8a',
     height: 50,
     paddingHorizontal: 20,
     borderColor: colors.buttons,

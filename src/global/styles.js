@@ -1,5 +1,5 @@
 export const colors = {
-  buttons: '#ff8c52',
+  buttons: '#75ba8a',
   grey1: '#43484d',
   grey2: '#5e6977',
   grey3: '#86939e',
@@ -7,7 +7,7 @@ export const colors = {
   grey5: '#e1e8ee',
   cardComment: '#86939e',
   cardBackground: 'white',
-  statusBar: '#ff8c52',
+  statusBar: '#75ba8a',
   headerText: 'white',
   lightgreen: '#66DF48',
 };
@@ -15,12 +15,12 @@ export const colors = {
 export const parameters = {
   headerHight: 40,
   styledButton: {
-    backgroundColor: '#ff8c52',
+    backgroundColor: '#75ba8a',
     alignContent: 'center',
     justifyContent: 'center',
     borderRadius: 12,
     borderwidth: 1,
-    borderColor: '#ff8c52',
+    borderColor: '#75ba8a',
     height: 50,
     paddingHorizontal: 20,
     width: '100%',
@@ -36,12 +36,12 @@ export const parameters = {
 };
 
 export const titleText = {
-  color: '#ff8c52',
+  color: '#75ba8a',
   fontSize: 20,
   fontWeight: 'bold',
 };
 export const title = {
-  color: '#ff8c52',
+  color: '#75ba8a',
   fontSize: 20,
   fontWeight: 'bold',
 };
@@ -71,5 +71,3 @@ export const fonts = {
     condensedItalic: 'RobotoCondensed-Italic',
   },
 };
-
-
