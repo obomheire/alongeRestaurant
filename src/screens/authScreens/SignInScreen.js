@@ -150,7 +150,7 @@ const SignInScreen = ({navigation}) => {
         />
       </View>
       <View style={{marginTop: 25, marginLeft: 20}}>
-        <Text style={styles.text1}>New on XpressFood ?</Text>
+        <Text style={styles.text1}>New on alongeRestaurant ?</Text>
       </View>
 
       <View style={{alignItems: 'flex-end', marginHorizontal: 20}}>

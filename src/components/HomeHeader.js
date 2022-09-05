@@ -28,7 +28,7 @@ const HomeHeader = ({navigation}) => {
             fontSize: 25,
             fontWeight: 'bold',
           }}>
-          XpressFood
+          alongeRestaurant
         </Text>
       </View>
       <View

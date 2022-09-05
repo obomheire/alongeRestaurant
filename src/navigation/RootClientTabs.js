@@ -13,7 +13,7 @@ import RootClientStack from './RootClientStack';
 
 const ClientTabs = createBottomTabNavigator();
 
-const RootClientTabs = ({navigation, route}) => {
+const RootClientTabs = () => {
   return (
     <ClientTabs.Navigator
       screenOptions={{
@@ -34,21 +34,25 @@ const RootClientTabs = ({navigation, route}) => {
       <ClientTabs.Screen
         name="RootClientStack"
         component={RootClientStack}
-        options={{
+        options={({route}) => ({
           headerShown: false,
           tabBarLabel: 'Search',
           tabBarIcon: ({color, size}) => (
             <Ionicons name="search" color={color} size={size} />
           ),
-          tabBarStyle: (route => {
+          tabBarStyle: ((route) => {
             const routeName = getFocusedRouteNameFromRoute(route) ?? '';
             console.log(routeName);
-            if (routeName === 'RestaurantHomeScreen' || 'MenuProductScreen') {
+            if (
+              routeName === 'RestaurantHomeScreen' ||
+              routeName === 'MenuProductScreen' ||
+              routeName === 'PreferenceScreen'
+            ) {
               return {display: 'none'};
             }
             return;
           })(route),
-        }}
+        })}
       />
 
       <ClientTabs.Screen
