@@ -1,26 +1,14 @@
-import {StyleSheet, Text, View} from 'react-native';
-import React, {useLayoutEffect} from 'react';
-import {createStackNavigator, TransitionPresets} from '@react-navigation/stack';
+import React from 'react';
+import {createStackNavigator} from '@react-navigation/stack';
 import SearchScreen from '../screens/SearchScreen';
 import SearchResultScreen from '../screens/SearchResultScreen';
 import RestaurantHomeScreen from '../screens/RestaurantHomeScreen';
-import {getFocusedRouteNameFromRoute} from '@react-navigation/native';
 import MenuProductScreen from '../screens/MenuProductScreen';
 import PreferenceScreen from '../screens/PreferenceScreen';
-// import RootClientTabs from './RootClientTabs';
 
 const ClientSearch = createStackNavigator();
 
-const RootClientStack = ({navigation, route}) => {
-  // useLayoutEffect(() => {
-  //   const routeName = getFocusedRouteNameFromRoute(route);
-  //   console.log(routeName);
-  //   if (routeName === 'RestaurantHomeScreen' || 'MenuProductScreen') {
-  //     navigation.setOptions({tabBarStyle: {display: 'none'}});
-  //   } else {
-  //     navigation.setOptions({tabBarStyle: {display: 'flex'}});
-  //   }
-  // }, [navigation, route]);
+const RootClientStack = () => {
 
   return (
     <ClientSearch.Navigator>
