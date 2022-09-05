@@ -10,6 +10,7 @@ export const colors = {
   statusBar: '#75ba8a',
   headerText: 'white',
   lightgreen: '#66DF48',
+  background: '#EADDCA',
 };
 
 export const parameters = {

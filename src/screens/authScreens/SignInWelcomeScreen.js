@@ -1,4 +1,4 @@
-import {StyleSheet, Text, View, Image} from 'react-native';
+import {StyleSheet, Text, View, Image, ImageBackground} from 'react-native';
 import React, {useEffect, useContext} from 'react';
 import {colors, parameters, title} from '../../global/styles';
 import Swiper from 'react-native-swiper';
@@ -22,21 +22,35 @@ const SignInWelcomeScreen = ({navigation}) => {
     });
   }, []);
 
+  //  <View style={styles.container}>
+  //    <ImageBackground source={image} resizeMode="cover" style={styles.image}>
+  //      <Text style={styles.text}>Inside</Text>
+  //    </ImageBackground>
+  //  </View>;
+  const image = {
+    uri: 'https://nowtoronto.com/wp-content/uploads/2022/01/afrobeatkitchen.jpg',
+  };
+
   return (
-    <View style={{flex: 1}}>
+    <View style={{flex: 1, backgroundColor: colors.background}}>
       <View
         style={{
           flex: 3,
           justifyContent: 'flex-start',
           alignItems: 'center',
-          paddingTop: 20,
+          // paddingTop: 20,
         }}>
-        <Text style={{fontSize: 26, color: colors.buttons, fontWeight: 'bold'}}>
-          DISCOVER RESTAURANTS
-        </Text>
-        <Text style={{fontSize: 26, color: colors.buttons, fontWeight: 'bold'}}>
-          IN YOUR AREA
-        </Text>
+        <ImageBackground source={image} resizeMode="cover" style={styles.image}>
+          <Text
+            style={{
+              fontSize: 26,
+              color: 'white',
+              fontWeight: 'bold',
+              justifyContent: 'center',
+            }}>
+            DISCOVER RESTAURANTS IN YOUR AREA
+          </Text>
+        </ImageBackground>
       </View>
 
       <View style={{flex: 4, justifyContent: 'center'}}>
@@ -133,5 +147,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: -3,
+  },
+  image: {
+    width: '100%',
+    height: '100%',
+    justifyContent: 'center',
   },
 });
