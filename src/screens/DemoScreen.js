@@ -200,25 +200,36 @@ const HomeScreen = ({navigation}) => {
         <ContentHeader header="Restaurants in your Area" />
 
         <View style={{width: SCREEN_WIDTH, paddingTop: 10}}>
-          <ScrollView horizontal={true}>
-            <FlatList
-              data={restaurantsData}
-              keyExtractor={(item, index) => index}
-              renderItem={({item}) => (
-                <View style={{paddingBottom: 20}}>
-                  <FoodCard
-                    screenWidth={SCREEN_WIDTH * 0.95}
-                    images={item.images}
-                    restaurantName={item.restaurantName}
-                    farAway={item.farAway}
-                    businessAddress={item.businessAddress}
-                    averageReview={item.averageReview}
-                    numberOfReview={item.numberOfReview}
-                  />
-                </View>
-              )}
-            />
-          </ScrollView>
+          {/* {restaurantsData.map(item => (
+            <View key={item.id} style={{paddingBottom: 20}}>
+              <FoodCard
+                screenWidth={SCREEN_WIDTH * 0.95}
+                images={item.images}
+                restaurantName={item.restaurantName}
+                farAway={item.farAway}
+                businessAddress={item.businessAddress}
+                averageReview={item.averageReview}
+                numberOfReview={item.numberOfReview}
+              />
+            </View>
+          ))} */}
+          <FlatList
+            data={restaurantsData}
+            keyExtractor={(item, index) => index}
+            renderItem={({item}) => (
+              <View style={{paddingBottom: 20}}>
+                <FoodCard
+                  screenWidth={SCREEN_WIDTH * 0.95}
+                  images={item.images}
+                  restaurantName={item.restaurantName}
+                  farAway={item.farAway}
+                  businessAddress={item.businessAddress}
+                  averageReview={item.averageReview}
+                  numberOfReview={item.numberOfReview}
+                />
+              </View>
+            )}
+          />
         </View>
       </ScrollView>
 
